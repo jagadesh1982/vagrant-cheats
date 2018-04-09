@@ -1,7 +1,5 @@
 # vagrant-cheats
-
-Cheat code for vagrant box configuration
-
+# Cheat code for vagrant box configuration
 
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -115,3 +113,5 @@ Vagrant.configure("2") do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 end
+
+	 
