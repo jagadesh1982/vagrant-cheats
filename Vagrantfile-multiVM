@@ -1,0 +1,31 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "node1" do |node1|
+    node1.vm.box = "centos/7"
+    node1.vm.hostname = 'work-node1'
+
+    node1.vm.network :public_network, ip: "172.16.202.96"
+
+    node1.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--cableconnected1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "node1"]
+    end
+  end
+
+  config.vm.define "node2" do |node2|
+    node2.vm.box = "centos/7"
+    node2.vm.hostname = 'work-node2'
+
+    node2.vm.network :public_network, ip: "172.16.202.97"
+
+    node2.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--cableconnected1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--name", "node2"]
+    end
+  end
+end
+
+
+# Change the file name to Vagrantfile. The vagrant configuration will let you create multiple Vms in one go. This configuration creates 
+multiple VM with Centos Operating System. This also allocates static Ips to the Nodes
