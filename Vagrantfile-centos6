@@ -1,0 +1,8 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "CentOS"
+  config.vm.box_url = "https://saleseng.s3.amazonaws.com/boxfiles/CentOS-6.3-x86_64-minimal.box"
+  config.vm.host_name = "dev.puppetlabs.vm"
+end
+
+
+# Change the file name to Vagrantfile and run "vagrant up". This Create a Centos 6 Vm
