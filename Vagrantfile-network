@@ -1,0 +1,13 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "CentOS2"
+  config.vm.box_url = "https://saleseng.s3.amazonaws.com/boxfiles/CentOS-6.3-x86_64-minimal.box"
+  config.vm.host_name = "dev.foohost.vm"
+  config.vm.network "private_network", ip: "172.16.202.96"
+
+ config.vm.provider :virtualbox do |vb|
+     vb.name = "foohost"
+ end
+end
+
+#vagrant file with IP settings. In order to make sure you access the ports in guest are accessed from host machine make sure you 
+disable the selinux and firewall in guest machine
