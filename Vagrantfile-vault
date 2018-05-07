@@ -1,0 +1,19 @@
+Vagrant.configure(2) do |config|
+   config.vm.box = "geerlingguy/centos7"
+   config.vm.host_name = "sshdev.foohost.vm"
+
+   config.vm.provider :virtualbox do |vb|
+       vb.name = "SSHFooBarhost" #Name of the Virtual
+       vb.customize ["modifyvm", :id , "--cpus", 4]
+   end
+
+ config.vm.provision “Ansible” do |ansible|
+    ansible.playbook =  “playbook.yml”
+    Ansible.raw_arguments = “ –ask-vault-pass”
+ end
+
+end
+
+
+#change the name to Vagrantfile. this vagrant file helps in creating a centos7 VM and runs a playbook on the VM. the playbook
+is secured with ansible vault which will ask for a password while running this.
